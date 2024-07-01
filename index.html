@@ -3,12 +3,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/vue@3.0.2"></script>
 </head>
 <body>
     <h1>Hello, Vue</h1>
     <div id="app">
+
         <div v-if="showBooks">
+            <ul >
+                <li v-for="book in books">
+                    <img :src="book.img" :alt="books.title">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }}</p>
+                </li>
+            </ul>
             <p>{{ title }} - {{ author}} - {{ age }}</p>
         </div>
 
@@ -23,6 +32,10 @@
         <div v-show="showBooks">currently showing books</div>
 
         <br>
+        <div class="box" @mouseover="handleEvent">mouseover</div>
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMousemove">position - {{ x }}, {{ y }}</div>
 
     </div>
 
